@@ -1,7 +1,7 @@
 public class Student {
 
-    String name;
-    Integer id;
+    private String name;
+    private Integer id;
 
     String[] courses = new String[100];
 
@@ -42,6 +42,10 @@ public class Student {
         String message = String.format("Student name: %s, Student id: %d ", name, id);
         System.out.println(message);
 
+    }
+
+    public String get_name(){
+        return name;
     }
 
     public void set_name(String n) {

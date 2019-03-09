@@ -31,7 +31,7 @@ public class Universitaet {
     public void search_student_name(String s) {
         for (int i = 0; i < students.length; i++) {
             if (students[i] != null) {
-                int n = students[i].name.toLowerCase().indexOf(s);
+                int n = students[i].get_name().toLowerCase().indexOf(s);
                 if (n != -1) {
                     students[i].get_student();
                 }
@@ -42,7 +42,7 @@ public class Universitaet {
     private int find_student_by_name(String s) {
         for (int i = 0; i < students.length; i++) {
             if (students[i] != null) {
-                int n = students[i].name.toLowerCase().indexOf(s);
+                int n = students[i].get_name().toLowerCase().indexOf(s);
                 if (n != -1) {
                     students[i].get_student();
                     return i;
