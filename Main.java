@@ -5,10 +5,10 @@ public class Main {
 
   public static void main(String[] args) {
     Universitaet uni = new Universitaet();
-    // Student S1 = new Student("Betul", 1);
-    // Student S2 = new Student("Farzan", 2);
+
     uni.add_student("Betul", 1);
     uni.add_student("Farzan", 2);
+    
     System.out.println("Welche Operation moechten Sie durchfuehren?");
 
     Integer operation = 0;
@@ -66,18 +66,6 @@ public class Main {
 
     }
 
-    // S1.set_course("Java");
-    // S1.set_course("C++");
-    // S1.get_student();
-    // S1.get_courses();
-
-    // System.out.println("-------------------------------------------");
-    // S2.set_course("Java 2");
-    // S2.set_course("C");
-    // S2.set_course("Visual Basic");
-
-    // S2.get_student();
-    // S2.get_courses();
 
   }
 }
