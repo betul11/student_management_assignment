@@ -1,18 +1,32 @@
+import java.util.*;
 public class Student {
 
+    private int id;
+
     private String name;
-    private Integer id;
+    private String surname;
+    
+    private Date date_of_birth;
+    private Date registration_date;
+    
+    private short GPA;
+    private String address;
+    private String phoneNumber;
+    private String email;
+
 
     String[] courses = new String[100];
 
     private Integer course_counter = 0;
 
-    public Student(String n) {
+    public Student(String n, Integer i, String sn) {
         name = n;
+        id = i;
+        surname = sn;
     }
 
     public Student(String n, Integer i) {
-        name = n;
+        surname = n;
         id = i;
     }
 
@@ -39,21 +53,37 @@ public class Student {
     }
 
     public void get_student() {
-        String message = String.format("Student name: %s, Student id: %d ", name, id);
+        String message = String.format("Student surname: %s, Student id: %d ", surname, id);
         System.out.println(message);
 
     }
 
     public String get_name(){
-        return name;
+        return surname;
     }
 
     public void set_name(String n) {
-        name = n;
+        surname = n;
     }
 
     public void set_id(Integer i) {
         id = i;
     }
 
+    public boolean equals(Object o) {
+        Student s = (Student) o;
+
+        if( this.id == s.id ){
+            return true;
+        }
+        
+        return false;
+
+    }
+
+    public String toString(){
+
+        return String.format("%d, %s", this.id, this.surname.toUpperCase());
+
+    }
 }

@@ -1,10 +1,16 @@
+import java.util.*;
+
 public class Universitaet {
 
-    private String name;
-    private Student[] students = new Student[500];
-    private Integer student_counter = 0;
+    private  String name;
+    private Vector<Student> students = new Vector<Student>(500);
+
+    public Universitaet(String n){
+        name = n;
+    }
 
     static void UniversitaetName() {
+        
         System.out.println("I just got executed!");
     }
 
@@ -12,39 +18,44 @@ public class Universitaet {
 
         Student new_student = new Student(m, i);
 
-        student_counter = student_counter + 1;
-        students[student_counter] = new_student;
+        if (students.contains(new_student) == false) {
+            students.add(new_student);
+        }else{
+            System.out.println("***** STUDENT ALREADY EXISTS");
+        }
+
 
     }
 
     public void get_students() {
 
-        int length = students.length;
+        int length = students.size();
 
         for (int i = 0; i < length; i++) {
-            if (students[i] != null) {
-                students[i].get_student();
+            if (students.get(i) != null) {
+                students.get(i).get_student();
             }
         }
     }
 
     public void search_student_name(String s) {
-        for (int i = 0; i < students.length; i++) {
-            if (students[i] != null) {
-                int n = students[i].get_name().toLowerCase().indexOf(s);
+        for (int i = 0; i < students.size(); i++) {
+            if (students.get(i) != null) {
+                int n = students.get(i).get_name().toLowerCase().indexOf(s);
                 if (n != -1) {
-                    students[i].get_student();
+                    students.get(i).get_student();
                 }
             }
         }
     }
 
-    private int find_student_by_name(String s) {
-        for (int i = 0; i < students.length; i++) {
-            if (students[i] != null) {
-                int n = students[i].get_name().toLowerCase().indexOf(s);
+    private Integer find_student_by_name(String s) {
+        for (Integer i = 0; i < students.size(); i++) {
+            System.out.println(i);
+            if (students.get(i) != null) {
+                int n = students.get(i).get_name().toLowerCase().indexOf(s);
                 if (n != -1) {
-                    students[i].get_student();
+                    students.get(i).get_student();
                     return i;
                 }
             }
@@ -57,22 +68,16 @@ public class Universitaet {
         int idx = find_student_by_name(_old);
 
         if (idx != -1) {
-            students[idx].set_name(_new);
+            students.get(idx).set_name(_new);
         } else {
             System.out.println("Student not found.");
         }
     }
 
-    private void remove_from_students(Integer i) {
-        int length = students.length;
-        for (int idx = i; idx < length - 1; idx++) {
-            students[idx] = students[idx + 1];
-        }
-    }
 
     public void remove_student(String n) {
         int idx = find_student_by_name(n);
-        remove_from_students(idx);
+        students.remove(idx);
     }
 
 }

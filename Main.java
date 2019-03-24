@@ -4,11 +4,18 @@ import java.util.Scanner;
 public class Main {
 
   public static void main(String[] args) {
-    Universitaet uni = new Universitaet();
+    Universitaet uni = new Universitaet("TDU");
 
     uni.add_student("Betul", 1);
     uni.add_student("Farzan", 2);
-    
+    //test contains in add new student
+    uni.add_student("Betul", 1);
+
+    //test toString Method
+    // System.out.println(uni.students.get(0).toString());
+    //test equals
+    // System.out.println(uni.students.get(0).equals(uni.students.get(1)));
+
     System.out.println("Welche Operation moechten Sie durchfuehren?");
 
     Integer operation = 0;
@@ -17,7 +24,7 @@ public class Main {
 
       System.out.println("1- add student");
       System.out.println("2- list students");
-      System.out.println("3- Search student");
+      System.out.println("3- Search student by name");
       System.out.println("4- edit student");
       System.out.println("5- delete student");
       System.out.println("6- exit");
